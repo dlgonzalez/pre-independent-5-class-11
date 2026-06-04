@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 11: Work Environments & Company Culture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --color-primary: #1E3A8A; 
+            --color-primary-light: #3B82F6;
+            --color-primary-hover: #2563EB;
+            --color-secondary: #10B981; 
+            --color-secondary-hover: #059669;
+            --color-accent: #F59E0B; 
+            --color-background: #F1F5F9; /* Deeper background to make white cards pop */
+            --color-surface: #FFFFFF;
+            --color-surface-hover: #F8FAFC;
+            
+            /* Text Colors */
+            --color-text-main: #0F172A;
+            --color-text-muted: #64748B;
+            --color-border: #E2E8F0;
+            --color-border-hover: #CBD5E1;
+            
+            /* Status Colors */
+            --color-success: #059669;
+            --color-success-bg: #D1FAE5;
+            --color-error: #DC2626;
+            --color-error-bg: #FEE2E2;
+            
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Shadows for Depth */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --shadow-focus: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            
+            /* Typography & Spacing */
+            --font-family: 'Inter', system-ui, sans-serif;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease-in-out;
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-background);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            padding: var(--spacing-md);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding-bottom: var(--spacing-2xl);
+        }
+
+        h1, h2, h3, h4 { 
+            color: var(--color-text-main); 
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 { 
+            font-size: 2.25rem; 
+            letter-spacing: -0.025em;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        h2 { 
+            font-size: 1.5rem; 
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        h3 { font-size: 1.25rem; margin-top: var(--spacing-md); margin-bottom: var(--spacing-sm); }
+        h4 { font-size: 1rem; margin-bottom: var(--spacing-xs); }
+        
+        p { margin-bottom: var(--spacing-md); color: var(--color-text-muted); font-size: 1.05rem; }
+        .muted { color: var(--color-text-muted); font-size: 0.9rem; }
+        
+        strong { color: var(--color-text-main); }
+
+        .card {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            transition: box-shadow var(--transition-smooth);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            padding: var(--spacing-2xl) var(--spacing-xl);
+        }
+        
+        .header-card::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
+            pointer-events: none;
+        }
+
+        .header-card h1, .header-card p, .header-card strong { color: white; }
+        .header-card p { opacity: 0.9; margin-bottom: 0; }
+        
+        .agenda-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-lg);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .agenda-box ul { margin-left: var(--spacing-lg); margin-top: var(--spacing-sm); }
+        .agenda-box li { margin-bottom: var(--spacing-xs); font-size: 0.95rem; }
+
+        button {
+            background-color: var(--color-primary-light);
+            color: white;
+            border: none;
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-family: var(--font-family);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        button:hover { 
+            background-color: var(--color-primary-hover); 
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        button:active { transform: translateY(0); }
+        
+        button.secondary { 
+            background-color: var(--color-surface); 
+            color: var(--color-text-main);
+            border: 1px solid var(--color-border);
+            box-shadow: none;
+        }
+        button.secondary:hover { 
+            background-color: var(--color-surface-hover);
+            border-color: var(--color-border-hover);
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1.5px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            background-color: var(--color-surface);
+            color: var(--color-text-main);
+            transition: all var(--transition-fast);
+        }
+        
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary-light);
+            box-shadow: var(--shadow-focus);
+            background-color: #fff;
+        }
+        
+        textarea { resize: vertical; min-height: 100px; }
+
+        .grid-2 { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: var(--spacing-lg); 
+        }
+        
+        .item-row {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            background: var(--color-surface);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+        
+        .item-row:hover {
+            border-color: var(--color-border-hover);
+            box-shadow: var(--shadow-sm);
+            background: var(--color-surface-hover);
+        }
+        
+        .item-number { 
+            font-weight: 700; 
+            color: var(--color-primary-light); 
+            background: #EFF6FF;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+            border: 1px solid transparent;
+        }
+        .radio-option:hover {
+            background: var(--color-surface-hover);
+            border-color: var(--color-border);
+        }
+        .radio-option input[type="radio"] {
+            transform: scale(1.2);
+            cursor: pointer;
+            accent-color: var(--color-primary-light);
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: var(--color-background);
+            border-radius: var(--radius-lg);
+            border: 1px dashed var(--color-border-hover);
+        }
+        
+        .word-chip {
+            background: var(--color-surface);
+            border: 2px solid var(--color-primary-light);
+            color: var(--color-primary-light);
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius-xl);
+            cursor: pointer;
+            font-weight: 600;
+            user-select: none;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .word-chip:hover { 
+            background: var(--color-primary-light); 
+            color: white; 
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .word-chip.selected { 
+            background: var(--color-accent); 
+            border-color: var(--color-accent); 
+            color: white; 
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+        }
+        
+        .word-chip.used { 
+            background: var(--color-background);
+            border-color: var(--color-border);
+            color: var(--color-text-muted);
+            box-shadow: none;
+            transform: none;
+            cursor: not-allowed; 
+            text-decoration: line-through; 
+            opacity: 0.6;
+        }
+        
+        .match-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+            height: 44px;
+            background: var(--color-surface);
+            border: 2px dashed var(--color-border-hover);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-sm);
+            padding: 0 var(--spacing-md);
+            color: var(--color-text-muted);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .match-slot.filled { 
+            border-style: solid; 
+            border-color: var(--color-primary-light); 
+            background: #EFF6FF;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+        
+        .match-slot:hover { 
+            background: var(--color-surface-hover); 
+            border-color: var(--color-primary-light);
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            margin-top: var(--spacing-md);
+        }
+        
+        .rubric-table { 
+            width: 100%; 
+            min-width: 600px; /* Forces scroll on mobile */
+            border-collapse: collapse; 
+        }
+        
+        .rubric-table th, .rubric-table td {
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .rubric-table th { 
+            background: var(--color-background); 
+            color: var(--color-text-main); 
+            font-weight: 600;
+        }
+        
+        .rubric-table td.criteria-name { 
+            text-align: left; 
+            font-weight: 500; 
+            background: var(--color-surface);
+            border-right: 1px solid var(--color-border);
+        }
+        
+        .radio-cell { transition: background var(--transition-fast); }
+        .radio-cell:hover { background: var(--color-surface-hover); }
+        .radio-cell label { 
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+            width: 100%; 
+            height: 100%; 
+            cursor: pointer; 
+            padding: var(--spacing-sm);
+        }
+        .radio-cell input[type="radio"] {
+            transform: scale(1.3);
+            accent-color: var(--color-primary-light);
+        }
+        
+        .report-box {
+            display: none;
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-primary-light);
+            border-radius: var(--radius-md);
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ai-helper {
+            background: linear-gradient(145deg, #fdf4ff 0%, #e0e7ff 100%);
+            border: 1px solid #c7d2fe;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .ai-icon { 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .ai-content { 
+            display: none; 
+            margin-top: var(--spacing-md); 
+            background: rgba(255, 255, 255, 0.7); 
+            backdrop-filter: blur(5px);
+            padding: var(--spacing-lg); 
+            border-radius: var(--radius-md); 
+            border: 1px solid #ffffff;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .help-phrase { 
+            display: inline-block; 
+            background: #ede9fe; 
+            color: #5b21b6; 
+            padding: 0.4rem 0.8rem; 
+            border-radius: var(--radius-sm); 
+            margin: 0.25rem; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            border: 1px solid #ddd6fe;
+        }
+
+        .email-quote {
+            background: var(--color-surface);
+            padding: var(--spacing-lg);
+            border-left: 4px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-lg);
+            font-style: italic;
+            color: var(--color-text-main);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hidden { display: none !important; }
+        
+        .feedback { 
+            margin-top: var(--spacing-md); 
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-weight: 600; 
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .feedback.active { display: block; }
+        
+        .feedback.correct { 
+            background-color: var(--color-success-bg);
+            color: var(--color-success);
+            border: 1px solid #A7F3D0;
+        }
+        
+        .feedback.incorrect { 
+            background-color: var(--color-error-bg);
+            color: var(--color-error);
+            border: 1px solid #FECACA;
+        }
+
+        /* Book Reference Badge */
+        .book-reference {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: #E0E7FF;
+            color: var(--color-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            border: 1px solid #C7D2FE;
+        }
+        
+        .instruction-block {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px dashed var(--color-border);
+        }
+
+        /* Tab Navigation System */
+        .tab-nav {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            overflow-x: auto;
+            padding-bottom: var(--spacing-sm);
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+        
+        .tab-nav::-webkit-scrollbar { 
+            display: none; /* Chrome/Safari */ 
+        }
+        
+        .tab-btn {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            font-weight: 600;
+            border-radius: var(--radius-xl);
+            padding: 0.75rem 1.25rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .tab-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: var(--color-surface-hover);
+            color: var(--color-text-main);
+            border-color: var(--color-border-hover);
+        }
+
+        .section-card {
+            display: none;
+            animation: slideFadeIn 0.4s ease-out forwards;
+        }
+        
+        .section-card.active {
+            display: block;
+        }
+
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .card { padding: var(--spacing-md); margin-bottom: var(--spacing-md); }
+            .header-card { padding: var(--spacing-xl) var(--spacing-md); }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.25rem; }
+            .item-row { flex-direction: column; align-items: flex-start; }
+            .match-slot { width: 100%; margin-top: var(--spacing-sm); }
+            .ai-icon { position: static; display: block; margin-bottom: var(--spacing-sm); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card header-card">
+        <h1>Class 11: Work Environments & Culture</h1>
+        <p><strong>Level:</strong> Pre-Independent 5 (B1+) &nbsp;|&nbsp; <strong>Format:</strong> Interactive Workshop</p>
+        
+        <div class="grid-2" style="margin-top: var(--spacing-lg);">
+            <div class="agenda-box" style="margin-top: 0;">
+                <p style="margin:0; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">📅 Today's Agenda</p>
+                <ul>
+                    <li><strong>Warm Up:</strong> Modals Review & Company Culture Presentations</li>
+                    <li><strong>Vocabulary:</strong> Work Collocations & Terminology</li>
+                    <li><strong>Life Skills:</strong> Self-Management Scenarios</li>
+                    <li><strong>Grammar & Writing:</strong> Parallel Structure Fixer & Email Reply</li>
+                    <li><strong>Wrap Up:</strong> Evaluating Office Management</li>
+                </ul>
+            </div>
+            
+            <div class="agenda-box" style="margin-top: 0; background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.4);">
+                <p style="margin:0; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">🎯 Learning Objectives</p>
+                <ul>
+                    <li><strong>Speaking:</strong> Present company rules using modals of obligation, permission, and prohibition.</li>
+                    <li><strong>Vocabulary:</strong> Accurately apply B1+ work collocations in professional contexts.</li>
+                    <li><strong>Life Skills:</strong> Assess self-management strategies for varied work environments.</li>
+                    <li><strong>Writing:</strong> Draft an informal office email utilizing strict parallel structure.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Tab Navigation -->
+    <nav class="tab-nav" id="main-tabs">
+        <button class="tab-btn active" onclick="openTab('tab-modals', this)">🎯 1. Warm Up</button>
+        <button class="tab-btn" onclick="openTab('tab-pitch', this)">🎤 2. Presentations</button>
+        <button class="tab-btn" onclick="openTab('tab-vocab', this)">🧩 3. Vocab</button>
+        <button class="tab-btn" onclick="openTab('tab-skills', this)">💡 4. Life Skills</button>
+        <button class="tab-btn" onclick="openTab('tab-grammar', this)">⚖️ 5. Grammar</button>
+        <button class="tab-btn" onclick="openTab('tab-writing', this)">✍️ 6. Writing</button>
+        <button class="tab-btn" onclick="openTab('tab-wrapup', this)">💬 7. Wrap Up</button>
+    </nav>
+
+    <div class="card section-card active" id="tab-modals">
+        <h2><span style="font-size: 1.5rem;">🎯</span> 1. Warm Up: The Rule Maker (Modals)</h2>
+        <div class="book-reference">📚 <strong>Context:</strong> Speaking Project Prep & Modals Review</div>
+        <div class="instruction-block">
+            <p><strong>Upgraded Activity:</strong> Before you pitch your company culture, let's warm up our brains. These 10 company rules are grammatically incorrect. Fix the modals of obligation, permission, or prohibition to prepare for your presentation.</p>
+        </div>
+        
+        <div id="modals-container">
+            <!-- Populated by JS -->
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg);">
+            <button onclick="checkModals()">Check Answers</button>
+            <div id="modals-feedback" class="feedback"></div>
+        </div>
+    </div>
+
+    <div class="card section-card" id="tab-pitch">
+        <h2><span style="font-size: 1.5rem;">🎤</span> 2. Presentations: Pitch Your Company Culture</h2>
+        <div class="book-reference">📚 <strong>Context:</strong> Applied Speaking Project</div>
+        <div class="instruction-block">
+            <p><strong>Activity:</strong> In your groups, present the company you have built to the class. Be sure to outline your roles, management style, and the core rules that govern your workplace using the structure guide below.</p>
+        </div>
+        
+        <div class="grid-2" style="margin-bottom: var(--spacing-xl); margin-top: var(--spacing-md);">
+            <!-- Left Column: Structure Guide -->
+            <div style="background: #EFF6FF; padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid #BFDBFE;">
+                <h3 style="color: var(--color-primary); margin-top: 0; font-size: 1.15rem;">📋 Presentation Structure</h3>
+                <ol style="margin-left: 1.2rem; font-size: 0.95rem; color: var(--color-text-main);">
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Company Profile:</strong> Name it and describe what it does.</li>
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Team Roles:</strong> Who is in charge of what? Explain <em>why</em> you chose those roles for each person.</li>
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Management Style:</strong> Traditional, cooperative, or a mix?</li>
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Company Rules (Modals):</strong>
+                        <ul style="margin-top: 0.25rem;">
+                            <li><strong>3 Obligations:</strong> "Employees are required to..."</li>
+                            <li><strong>2 Permissions:</strong> "Staff are allowed to..."</li>
+                            <li><strong>1-2 Prohibitions:</strong> "We don't let..."</li>
+                        </ul>
+                    </li>
+                    <li style="margin-bottom: 0;"><strong>Justification:</strong> Explain why this culture works for your goals.</li>
+                </ol>
+            </div>
+
+            <!-- Right Column: Help Phrases -->
+            <div style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <h3 style="margin-top: 0; font-size: 1.15rem;">🗣️ Help Phrases</h3>
+                <ul style="list-style: none; margin: 0; padding: 0; font-size: 0.9rem;">
+                    <li style="margin-bottom: var(--spacing-sm);"><strong>Roles:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">My role is...</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">We assigned [Name] as [Role] because...</span></li>
+                    <li style="margin-bottom: var(--spacing-sm);"><strong>Style:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">We chose a cooperative style because...</span></li>
+                    <li style="margin-bottom: var(--spacing-sm);"><strong>Obligation:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Staff must...</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">We expect everyone to...</span></li>
+                    <li style="margin-bottom: var(--spacing-sm);"><strong>Permission:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Employees are allowed to...</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">We let our team...</span></li>
+                    <li style="margin-bottom: var(--spacing-sm);"><strong>Prohibition:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Staff are not allowed to...</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">It is forbidden to...</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ai-helper" style="margin-top: 0; margin-bottom: var(--spacing-xl); background: linear-gradient(145deg, #F0FDF4 0%, #DCFCE7 100%); border-color: #86EFAC;">
+            <h3 style="margin-top:0; color: #166534; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">
+                <span>💡</span> Sample B1+ Answer
+            </h3>
+            <p style="font-size: 0.95rem; font-style: italic; color: #14532D; margin-bottom: 0; line-height: 1.6;">
+                "Our company is NovaTech Solutions, and we provide software consulting. In our group, Sarah is the CEO because she has great leadership skills, John is the Lead Developer, and I am the HR Manager. We've decided on a mix of cooperative and traditional management styles. 
+                <br><br>
+                In terms of rules, all employees <strong>are required to</strong> attend a weekly sync. As the Lead Developer, John <strong>has to</strong> approve all code. Staff <strong>are allowed to</strong> choose their own working hours, and we <strong>let</strong> our developers work from home twice a week. However, staff <strong>are not allowed to</strong> share client data outside the network. 
+                <br><br>
+                We chose this structure because we believe people work best when they have flexibility but clear guidelines."
+            </p>
+        </div>
+        
+        <div style="background: var(--color-background); padding: var(--spacing-lg); border-radius: var(--radius-lg); border: 1px solid var(--color-border); margin-top: var(--spacing-md);">
+            <h3 style="margin-top: 0;">Teacher's Evaluation Rubric</h3>
+            <input type="text" id="studentName" placeholder="Enter Student(s) Name..." style="max-width: 400px; margin-bottom: var(--spacing-md);">
+            
+            <div class="table-responsive">
+                <table class="rubric-table">
+                    <thead>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>1 (Needs Work)</th>
+                            <th>2</th>
+                            <th>3 (Average)</th>
+                            <th>4</th>
+                            <th>5 (Excellent)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rubric-body">
+                        <!-- Rows generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <button onclick="generateReport()" style="margin-top: var(--spacing-lg);">Generate Report</button>
+            <div id="rubric-report" class="report-box"></div>
+        </div>
+    </div>
+
+    <div class="card section-card" id="tab-vocab">
+        <h2><span style="font-size: 1.5rem;">🧩</span> 3. Vocabulary: Work Collocations</h2>
+        <div class="book-reference">📚 <strong>Book Reference:</strong> Lesson 3 — Vocabulary (Exercise A)</div>
+        <div class="instruction-block">
+            <p style="margin-bottom: var(--spacing-xs);"><em>Original Instruction: "Match the phrases to the definitions."</em></p>
+            <p><strong>Upgraded Activity:</strong> We have expanded the book's 8 phrases to 15 B1+ workplace collocations. Click a blue word chip, then click the empty slot where it belongs.</p>
+        </div>
+        
+        <div class="word-bank" id="vocab-bank">
+            <!-- Words populated by JS -->
+        </div>
+
+        <div id="vocab-questions" class="grid-2">
+            <!-- Questions populated by JS -->
+        </div>
+        
+        <div style="margin-top: var(--spacing-xl); border-top: 1px solid var(--color-border); padding-top: var(--spacing-lg);">
+            <button onclick="checkVocab()">Submit Matches</button>
+            <div id="vocab-feedback" class="feedback"></div>
+        </div>
+    </div>
+
+    <div class="card section-card" id="tab-skills">
+        <h2><span style="font-size: 1.5rem;">💡</span> 4. Life Skills: Self-Management Scenarios</h2>
+        <div class="book-reference">📚 <strong>Book Reference:</strong> Lesson 3 — Life Skills (Exercise C) & Make It Real</div>
+        <div class="instruction-block">
+            <p style="margin-bottom: var(--spacing-xs);"><em>Original Instruction: "Assess your self-management skills... When speaking informally, people often shorten words (exec, flex, rec, tech)."</em></p>
+            <p><strong>Upgraded Activity:</strong> Read the 12 workplace scenarios below. Identify the self-management issue or select the correct meaning of the informal office language.</p>
+        </div>
+        
+        <div id="scenario-container">
+            <!-- Populated by JS -->
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg);">
+            <button onclick="checkScenarios()">Check Scenarios</button>
+            <div id="scenario-feedback" class="feedback"></div>
+        </div>
+    </div>
+
+    <div class="card section-card" id="tab-grammar">
+        <h2><span style="font-size: 1.5rem;">⚖️</span> 5. Grammar: Parallel Structure Fixer</h2>
+        <div class="book-reference">📚 <strong>Book Reference:</strong> Lesson 3 — Writing (Exercise B)</div>
+        <div class="instruction-block">
+            <p style="margin-bottom: var(--spacing-xs);"><em>Original Instruction: "When you list things or actions in a sentence, all the items in the list should have the same grammatical structure. Rewrite the sentences using parallel structure."</em></p>
+            <p><strong>Upgraded Activity:</strong> We expanded the 4 book examples into <strong>20 broken sentences</strong>. Rewrite these sentences from professional emails so they are perfectly parallel.</p>
+        </div>
+        
+        <div id="parallel-container">
+            <!-- Populated by JS -->
+        </div>
+        
+        <div style="margin-top: var(--spacing-lg);">
+            <!-- Modified from alert() to inline UI feedback to meet best practices -->
+            <button onclick="checkParallel()">Review Grammar (Self-Check)</button>
+            <div id="parallel-feedback" class="feedback"></div>
+        </div>
+    </div>
+
+    <div class="card section-card" id="tab-writing">
+        <h2><span style="font-size: 1.5rem;">✍️</span> 6. Writing: The Office Email</h2>
+        <div class="book-reference">📚 <strong>Book Reference:</strong> Lesson 3 — Writing (Exercises A & C)</div>
+        <div class="instruction-block">
+            <p style="margin-bottom: var(--spacing-xs);"><em>Original Instruction: "Read the office email from Tom Winters... Write an informal email replying. Give your opinions on the ideas for the new office design."</em></p>
+            <p><strong>Upgraded Activity:</strong> Read the quote below from Tom Winters regarding the new office design. Write an informal reply giving your opinions. <strong>You must use parallel structure at least twice.</strong></p>
+        </div>
+        
+        <div class="email-quote">
+            "So, lots of furniture, bright colors, no individual workstations. We'll still have the café, but it has changed to healthy foods... Let me know your opinions on the colors, the furniture, and what the café and rec room will be like." <br><br><strong>- Tom Winters</strong>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: var(--spacing-lg);">
+            <!-- Steps & Hints -->
+            <div style="background: #F8FAFC; padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <h3 style="margin-top: 0; color: var(--color-primary); font-size: 1.15rem;">📝 Steps for a Great Reply</h3>
+                <ol style="margin-left: 1.2rem; font-size: 0.95rem; color: var(--color-text-main);">
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Acknowledge:</strong> Thank him for the email and the update.</li>
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Share Positives:</strong> Mention 1-2 things you are excited about (e.g., the café).</li>
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Raise Concerns (Politely):</strong> Give constructive feedback on what might not work (e.g., no individual desks).</li>
+                    <li style="margin-bottom: var(--spacing-xs);"><strong>Grammar Check:</strong> Ensure you included at least <em>two lists</em> with perfect parallel structure.</li>
+                    <li style="margin-bottom: 0;"><strong>Sign-off:</strong> End with a warm, professional closing.</li>
+                </ol>
+            </div>
+
+            <!-- Useful Phrases -->
+            <div style="background: var(--color-surface); padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+                <h3 style="margin-top: 0; font-size: 1.15rem;">🗣️ Useful Email Phrases</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem;">
+                    <div><strong>Opening:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Thanks for reaching out.</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">The ideas look great!</span></div>
+                    <div><strong>Agreeing:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">I'm really excited about...</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">I love the idea of...</span></div>
+                    <div><strong>Disagreeing:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">I have some concerns about...</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Would it be possible to...</span></div>
+                    <div><strong>Closing:</strong> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Looking forward to it!</span> <span class="help-phrase" style="padding: 0.2rem 0.5rem; font-size: 0.85rem;">Let me know what you think.</span></div>
+                </div>
+            </div>
+        </div>
+
+        <textarea id="email-draft" placeholder="Hey Tom, Thanks for the email. Regarding the new design..."></textarea>
+
+        <div class="ai-helper">
+            <span class="ai-icon">🤖</span>
+            <h3 style="margin-top:0; color: #4338ca;">AI Co-Thinker</h3>
+            <p style="margin-bottom: var(--spacing-sm); font-size: 0.95rem;">Need help finding the right words or structuring your email?</p>
+            <button class="secondary" onclick="toggleAI()">Open AI Assistant</button>
+            
+            <div id="ai-content" class="ai-content">
+                <h4>Help Phrases:</h4>
+                <div style="margin-bottom: var(--spacing-md);">
+                    <span class="help-phrase">I really like the idea of...</span>
+                    <span class="help-phrase">However, I am concerned about...</span>
+                    <span class="help-phrase">Regarding the [colors/furniture]...</span>
+                    <span class="help-phrase">To be productive, we need A, B, and C. (Parallel)</span>
+                </div>
+                
+                <h4>Sample B1+ Answer</h4>
+                <div id="ai-sample" class="hidden" style="background: var(--color-surface); padding: var(--spacing-md); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: 0.95rem; margin-top: var(--spacing-xs);">
+                    "Hey Tom, <br><br>Thanks for the update. I love the idea of a dynamic workspace. Bright colors, comfortable furniture, and healthy food sound great! <br><br>However, I am a bit worried about having no individual workstations. To do our best work, we need to focus, communicate, and occasionally have privacy. Could we have a mix of open areas, private pods, and meeting rooms? <br><br>Let us know! <br>Best, [Your Name]"
+                </div>
+                <button class="secondary" style="margin-top: var(--spacing-sm); font-size: 0.85rem; padding: 0.5rem 1rem;" onclick="document.getElementById('ai-sample').classList.toggle('hidden')">Show/Hide Sample</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card section-card" id="tab-wrapup">
+        <h2><span style="font-size: 1.5rem;">💬</span> 7. Wrap Up: Evaluating Office Management</h2>
+        <div class="book-reference">📚 <strong>Book Reference:</strong> Lesson 3 — Thinking Skill: Evaluating (Exercise B)</div>
+        <div class="instruction-block">
+            <p style="margin-bottom: var(--spacing-xs);"><em>Original Instruction: "Read about evaluating situations... Evaluate each supporting idea by making a pros and cons list in your notebook."</em></p>
+            <p><strong>Upgraded Activity:</strong> We changed the book's topic from "classroom management" to "office management" to fit adult learners. Create a Pros and Cons list for the statement below, then discuss as a class.</p>
+        </div>
+        
+        <div style="text-align: center; color: var(--color-primary); background: #EFF6FF; padding: var(--spacing-lg); border-radius: var(--radius-lg); margin: var(--spacing-lg) 0; border: 1px solid #BFDBFE;">
+            <h3 style="margin: 0;">"Adult employees work best when they follow strict 9-to-5 schedules, dress formally, and are closely monitored by managers."</h3>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <h4 style="color: var(--color-success); font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 1.5rem;">👍</span> PROS
+                </h4>
+                <p class="muted" style="margin-bottom: var(--spacing-xs);">Why might companies believe this?</p>
+                <textarea placeholder="1. It ensures everyone is available at the same time..."></textarea>
+            </div>
+            <div>
+                <h4 style="color: var(--color-error); font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 1.5rem;">👎</span> CONS
+                </h4>
+                <p class="muted" style="margin-bottom: var(--spacing-xs);">Why might this be bad for employees?</p>
+                <textarea placeholder="1. It creates unnecessary stress..."></textarea>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let selectedWordChip = null;
+
+    // Tab Navigation Logic
+    function openTab(tabId, btnElement) {
+        // Hide all section cards
+        const sections = document.querySelectorAll('.section-card');
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // Remove active styling from all buttons
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Show targeted section card
+        document.getElementById(tabId).classList.add('active');
+
+        // Highlight the clicked button
+        if (btnElement) {
+            btnElement.classList.add('active');
+        }
+        
+        // Smooth scroll to top of tabs (useful for mobile UX)
+        if(window.innerWidth < 768) {
+            document.getElementById('main-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Data sets
+    const modalsData = [
+        { bad: "Employees must to arrive by 9 AM.", hint: "Remove the infinitive 'to'." },
+        { bad: "You don't have to smoke inside the office.", hint: "Use 'must not' or 'are not allowed to' for prohibition." },
+        { bad: "Staffs are allowed take a one-hour lunch.", hint: "Missing preposition after allowed." },
+        { bad: "We should to wear formal clothes on Fridays.", hint: "Should is followed by a base verb." },
+        { bad: "Can I to leave early today?", hint: "Can is followed by a base verb." },
+        { bad: "They are require to attend the meeting.", hint: "Check the passive voice form of require." },
+        { bad: "You mustn't to share passwords.", hint: "Mustn't is followed by a base verb." },
+        { bad: "Managers let employees to work from home.", hint: "'Let' does not take 'to'." },
+        { bad: "Workers are permit to use the rec room.", hint: "Check the passive voice form of permit." },
+        { bad: "You have not to shout in the office.", hint: "Negative obligation uses 'do not have to' or 'must not' depending on meaning." }
+    ];
+
+    const vocabWords = [
+        "get to work", "work a flexible schedule", "work nine to five", "work overtime", 
+        "work remotely", "work something out", "work under pressure", "workstation",
+        "work freelance", "work shifts", "work your way up", "work up a sweat",
+        "work out well", "work around the clock", "work against the clock"
+    ];
+    
+    const vocabDefs = [
+        { id: 0, text: "to work extra hours" },
+        { id: 1, text: "to work away from your office (e.g. at home)" },
+        { id: 2, text: "to feel a lot of stress and worry about work" },
+        { id: 3, text: "to work at different times from usual working hours" },
+        { id: 4, text: "to solve a problem or reach an agreement" },
+        { id: 5, text: "a small area with a desk and a computer" },
+        { id: 6, text: "start working / begin a task" },
+        { id: 7, text: "to work during usual business hours" },
+        { id: 8, text: "to be self-employed and work for different companies" },
+        { id: 9, text: "to work at different parts of the day or night (e.g., nurses)" },
+        { id: 10, text: "to start at the bottom of a company and get promoted" },
+        { id: 11, text: "to put a lot of physical effort into a task" },
+        { id: 12, text: "to happen or end in a successful way" },
+        { id: 13, text: "to work all day and all night without stopping" },
+        { id: 14, text: "to work very fast because you have a strict deadline" }
+    ];
+    const correctVocabMap = {0:3, 1:4, 2:6, 3:1, 4:5, 5:7, 6:0, 7:2, 8:8, 9:9, 10:10, 11:11, 12:12, 13:13, 14:14};
+
+    const scenariosData = [
+        { q: "Sarah misses her deadlines because she answers emails as soon as they arrive instead of finishing her reports first. What is her issue?", opts: ["Poor communication", "Poor prioritizing", "Lack of tech skills"], ans: 1 },
+        { q: "What does 'exec' mean in a business context?", opts: ["Excellent", "Executive", "Execute"], ans: 1 },
+        { q: "John is panicking because he has three projects due tomorrow. He hasn't slept. What does he need to improve?", opts: ["Stress management", "Flexible working", "Workstation setup"], ans: 0 },
+        { q: "The job ad says: 'Great flex options available.' What does this mean?", opts: ["Flexible schedule", "Flexing muscles", "Flexible pay"], ans: 0 },
+        { q: "Maria works well at the office but gets nothing done when working remotely at home. What does she lack?", opts: ["Self-motivation / Focus", "Teamwork", "A good manager"], ans: 0 },
+        { q: "We need more 'tech' in the conference room. What is 'tech'?", opts: ["Technicians", "Technology", "Techniques"], ans: 1 },
+        { q: "David waits for his boss to tell him exactly what to do every hour. He lacks...", opts: ["Independent problem solving", "Punctuality", "Overtime capacity"], ans: 0 },
+        { q: "The company installed a 'rec' room. What is it for?", opts: ["Recording meetings", "Recreation / Relaxation", "Receiving clients"], ans: 1 },
+        { q: "An employee who knows how to 'manage their time' usually...", opts: ["Works 15 hours a day", "Plans ahead and uses hours effectively", "Arrives late but works fast"], ans: 1 },
+        { q: "If an ad says 'Dynamic, fast-paced environment', you will likely need to...", opts: ["Work under pressure", "Work very slowly", "Work outside"], ans: 0 },
+        { q: "If you 'evaluate' a situation, you...", opts: ["Ignore it completely", "Judge its good and bad points carefully", "Accept it immediately"], ans: 1 },
+        { q: "A 'traditional' office environment usually features...", opts: ["Bean bags and video games", "Set 9-to-5 hours and fixed desks", "100% remote work"], ans: 1 }
+    ];
+
+    const parallelData = [
+        "1. We'll still have the café, but it has changed to healthy foods.",
+        "2. You know we make decisions and are working together here.",
+        "3. Let me know your opinions on the colors, the furniture, and what the café and rec room will be like.",
+        "4. You can send your emails individually, in groups, or you can send emails as a department.",
+        "5. The new manager is smart, efficient, and she communicates well.",
+        "6. Our goals are increasing sales, to expand the market, and retaining customers.",
+        "7. He prefers working remotely, taking flexible breaks, and to avoid rush hour.",
+        "8. The software is fast, reliable, and it is easy to use.",
+        "9. Please check the report for accuracy, if it is complete, and tone.",
+        "10. We need to hire people who are creative, dedicated, and have a lot of passion.",
+        "11. The presentation was informative, engaging, and lasted too long.",
+        "12. She is responsible for reviewing applications, interviewing candidates, and the hiring process.",
+        "13. To succeed, you must be proactive, manage time well, and a good listener.",
+        "14. The committee debated the budget, the timeline, and what the final deliverables should be.",
+        "15. My duties include answering calls, emails, and to greet visitors.",
+        "16. The CEO praised the team for their hard work, dedication, and because they were innovative.",
+        "17. We can hold the meeting on Monday, Tuesday, or we can do it on Friday.",
+        "18. Employees should focus on collaborating, to communicate, and problem-solving.",
+        "19. The manual is designed to train new staff, to guide daily operations, and for providing safety rules.",
+        "20. Good leaders know how to inspire their team, making tough decisions, and take responsibility."
+    ];
+
+    window.onload = () => {
+        renderModals();
+        renderRubric();
+        renderVocab();
+        renderScenarios();
+        renderParallel();
+    };
+
+    function renderModals() {
+        const cont = document.getElementById('modals-container');
+        modalsData.forEach((item, i) => {
+            cont.innerHTML += `
+                <div class="item-row">
+                    <span class="item-number">${i+1}</span>
+                    <div style="flex-grow: 1; width: 100%;">
+                        <p style="margin-bottom: 0.5rem; font-weight: 500; color: var(--color-error); text-decoration: line-through;">${item.bad}</p>
+                        <input type="text" id="modal-ans-${i}" placeholder="Type correct sentence here...">
+                        <p class="muted" style="margin-top: 0.5rem; margin-bottom: 0; font-size: 0.85rem;">💡 Hint: ${item.hint}</p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function renderRubric() {
+        const criteria = [
+            "Use of Modals (Obligation, Permission, Prohibition)",
+            "Clear Structure (Name, Style, Rules, Reasons)",
+            "Pronunciation & Fluency",
+            "Engagement & Professionalism"
+        ];
+        const tbody = document.getElementById('rubric-body');
+        criteria.forEach((crit, i) => {
+            let row = `<tr><td class="criteria-name">${crit}</td>`;
+            for(let j=1; j<=5; j++) {
+                row += `<td class="radio-cell"><label><input type="radio" name="crit-${i}" value="${j}"></label></td>`;
+            }
+            row += `</tr>`;
+            tbody.innerHTML += row;
+        });
+    }
+
+    function renderVocab() {
+        const bank = document.getElementById('vocab-bank');
+        vocabWords.forEach((word, i) => {
+            bank.innerHTML += `<div class="word-chip" id="chip-${i}" onclick="selectChip(${i})">${word}</div>`;
+        });
+
+        const qCont = document.getElementById('vocab-questions');
+        vocabDefs.forEach((def, i) => {
+            qCont.innerHTML += `
+                <div class="item-row" style="flex-direction: column; align-items: flex-start;">
+                    <div style="font-weight: 500; margin-bottom: var(--spacing-xs);"><span class="item-number" style="display:inline-flex; width: 24px; height: 24px; font-size: 0.8rem; margin-right: 8px;">${i+1}</span> ${def.text}</div>
+                    <div class="match-slot" id="slot-${i}" onclick="fillSlot(${i})">Click to place word</div>
+                </div>
+            `;
+        });
+    }
+
+    function renderScenarios() {
+        const cont = document.getElementById('scenario-container');
+        scenariosData.forEach((scen, i) => {
+            let optsHtml = scen.opts.map((opt, j) => 
+                `<label class="radio-option">
+                    <input type="radio" name="scen-${i}" value="${j}"> 
+                    <span>${opt}</span>
+                </label>`
+            ).join('');
+            
+            cont.innerHTML += `
+                <div class="item-row" style="flex-direction: column; align-items: flex-start;">
+                    <p style="margin-bottom: 0.75rem; font-weight: 500; color: var(--color-text-main);">
+                        <span class="item-number" style="display:inline-flex; width: 24px; height: 24px; font-size: 0.8rem; margin-right: 8px;">${i+1}</span> 
+                        ${scen.q}
+                    </p>
+                    <div style="width: 100%; padding-left: 32px;">${optsHtml}</div>
+                </div>
+            `;
+        });
+    }
+
+    function renderParallel() {
+        const cont = document.getElementById('parallel-container');
+        parallelData.forEach((sent, i) => {
+            cont.innerHTML += `
+                <div class="item-row" style="flex-direction: column; align-items: flex-start;">
+                    <p style="margin-bottom: 0.5rem; font-weight: 500;">${sent}</p>
+                    <input type="text" placeholder="Rewrite correctly here...">
+                </div>
+            `;
+        });
+    }
+
+    function checkModals() {
+        const fb = document.getElementById('modals-feedback');
+        fb.innerHTML = "✅ Good effort! Review your sentences with the class to ensure the modals are followed by base verbs and correct prepositions.";
+        fb.className = "feedback active correct";
+    }
+
+    function generateReport() {
+        const name = document.getElementById('studentName').value || "Student";
+        let total = 0;
+        let answered = 0;
+        
+        for(let i=0; i<4; i++) {
+            const radios = document.getElementsByName(`crit-${i}`);
+            for(let radio of radios) {
+                if(radio.checked) {
+                    total += parseInt(radio.value);
+                    answered++;
+                }
+            }
+        }
+
+        const reportBox = document.getElementById('rubric-report');
+        if(answered < 4) {
+            reportBox.style.display = 'block';
+            reportBox.innerHTML = "⚠️ Please score all 4 criteria before generating the report.";
+            reportBox.style.borderLeftColor = "var(--color-error)";
+            return;
+        }
+
+        const avg = (total / 4).toFixed(1);
+        reportBox.style.display = 'block';
+        reportBox.style.borderLeftColor = "var(--color-primary-light)";
+        reportBox.innerHTML = `<strong>📋 Evaluation Report</strong>\n\n<strong>Student:</strong> ${name}\n<strong>Total Score:</strong> ${total}/20\n<strong>Average Grade:</strong> ${avg}/5.0\n\n<em>Notes: Ensure accurate use of modals and maintain a strong, engaging presentation presence.</em>`;
+    }
+
+    let slotAssignments = {}; 
+
+    function selectChip(index) {
+        const chip = document.getElementById(`chip-${index}`);
+        if(chip.classList.contains('used')) return;
+
+        if(selectedWordChip !== null) {
+            document.getElementById(`chip-${selectedWordChip}`).classList.remove('selected');
+        }
+
+        if(selectedWordChip === index) {
+            selectedWordChip = null; 
+        } else {
+            selectedWordChip = index;
+            chip.classList.add('selected');
+        }
+    }
+
+    function fillSlot(slotIndex) {
+        const slot = document.getElementById(`slot-${slotIndex}`);
+        
+        if(slotAssignments[slotIndex] !== undefined) {
+            const oldChipIndex = slotAssignments[slotIndex];
+            const oldChip = document.getElementById(`chip-${oldChipIndex}`);
+            oldChip.classList.remove('used');
+            delete slotAssignments[slotIndex];
+            slot.innerHTML = "Click to place word";
+            slot.classList.remove('filled');
+        }
+
+        if(selectedWordChip !== null) {
+            slotAssignments[slotIndex] = selectedWordChip;
+            const word = vocabWords[selectedWordChip];
+            slot.innerHTML = word;
+            slot.classList.add('filled');
+            
+            const chip = document.getElementById(`chip-${selectedWordChip}`);
+            chip.classList.remove('selected');
+            chip.classList.add('used');
+            
+            selectedWordChip = null;
+        }
+    }
+
+    function checkVocab() {
+        let correct = 0;
+        let total = vocabDefs.length;
+        
+        for(let i=0; i<total; i++) {
+            const slot = document.getElementById(`slot-${i}`);
+            if(slotAssignments[i] === correctVocabMap[i]) {
+                correct++;
+                slot.style.color = "var(--color-success)";
+                slot.style.borderColor = "var(--color-success)";
+                slot.style.backgroundColor = "var(--color-success-bg)";
+            } else if (slotAssignments[i] !== undefined) {
+                slot.style.color = "var(--color-error)";
+                slot.style.borderColor = "var(--color-error)";
+                slot.style.backgroundColor = "var(--color-error-bg)";
+            }
+        }
+        
+        const fb = document.getElementById('vocab-feedback');
+        fb.innerHTML = `You got ${correct} out of ${total} correct!`;
+        fb.className = "feedback active " + (correct === total ? "correct" : "incorrect");
+    }
+
+    function checkScenarios() {
+        let score = 0;
+        scenariosData.forEach((scen, i) => {
+            const radios = document.getElementsByName(`scen-${i}`);
+            radios.forEach(r => {
+                if(r.checked && parseInt(r.value) === scen.ans) score++;
+            });
+        });
+        
+        const fb = document.getElementById('scenario-feedback');
+        fb.innerHTML = `🎯 You scored ${score} out of 12. Review the incorrect ones with your teacher!`;
+        fb.className = "feedback active correct";
+    }
+
+    function checkParallel() {
+        // Replaced system alert() with styled inline feedback as required by system rules.
+        const fb = document.getElementById('parallel-feedback');
+        fb.innerHTML = "✅ Self-check complete! Please discuss your rewritten sentences with your teacher to verify parallel structure accuracy.";
+        fb.className = "feedback active correct";
+    }
+
+    function toggleAI() {
+        const content = document.getElementById('ai-content');
+        if(content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>
